@@ -14,7 +14,6 @@
 
 .message,
 .tip {
-	padding: 0 10px;
 	margin-top: 10px;
 	font-size: 30px;
 }
@@ -24,9 +23,7 @@
 }
 
 .image {
-	margin: 30px;
-	padding: 0 15px;
-	width: 100%;
+	margin: 30px 20px;
 	position: relative;
 	background-color: hsl(354, 76%, 93%);
 	will-change: transform;
