@@ -5,6 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	font-family: "Arvo", serif;
+	padding: 5px 10px;
 }
 
 .welcome {
@@ -23,6 +24,7 @@
 }
 
 .imageWrapper {
+	max-width: 600px;
 	margin: 30px 20px;
 	position: relative;
 	background-color: hsl(354, 76%, 93%);
