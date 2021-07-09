@@ -16,5 +16,5 @@ export const RandomApiPath = (endpoint: TEndpoints) => {
 	const usableEndpoints = Endpoints[endpoint][selectedUrl];
 	const randomEndpoint = RandomElement(usableEndpoints);
 
-	return `${selectedUrl}${randomEndpoint}`;
+	return selectedUrl + randomEndpoint;
 };
