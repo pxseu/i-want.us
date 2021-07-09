@@ -12,7 +12,7 @@ export const RandomApiPath = (endpoint: TEndpoints) => {
 
 	const selectedUrl = RandomElement(urlArr);
 
-	// @ts-ignore
+	// @ts-expect-error Type error for URL.
 	const usableEndpoints = Endpoints[endpoint][selectedUrl];
 	const randomEndpoint = RandomElement(usableEndpoints);
 
