@@ -1,0 +1,39 @@
+.contentWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "Arvo", serif;
+}
+
+.welcome {
+	margin-top: 20px;
+	font-size: 50px;
+}
+
+.message,
+.tip {
+	margin-top: 10px;
+	font-size: 30px;
+}
+
+.tip {
+	margin-top: 30px;
+}
+
+.name {
+	font-style: italic;
+}
+
+.imageWrapper {
+	margin-top: 30px;
+	position: relative;
+	background-color: hsl(354, 76%, 93%);
+	width: 400px;
+	height: 300px;
+	transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.imageWrapper:hover {
+	box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.2);
+	transform: scale(1.05);
+}
