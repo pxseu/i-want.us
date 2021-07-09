@@ -22,7 +22,7 @@
 	margin-top: 30px;
 }
 
-.imageWrapper {
+.image {
 	margin: 30px 20px;
 	position: relative;
 	background-color: hsl(354, 76%, 93%);
@@ -34,15 +34,11 @@
 	-o-transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
-.imageWrapper:hover {
+.image:hover {
 	box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.2);
 	transform: scale(1.05);
 	-webkit-transform: scale(1.05);
 	-moz-transform: scale(1.05);
 	-ms-transform: scale(1.05);
 	-o-transform: scale(1.05);
-}
-
-.image {
-	width: 100%;
 }
