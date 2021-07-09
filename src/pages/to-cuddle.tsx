@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Image from "next/image";
 import Head from "next/head";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { fetchRandomEndpoint } from "@/utils/fetchRandomEndpoint";
@@ -23,7 +22,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	try {
 		const queryTo = context.query.to;
 		if (typeof queryTo === "string") to = queryTo;
-	} catch (error) {
+	} catch (e) {
 		/* */
 	}
 
@@ -53,7 +52,7 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ imag
 				Hey{" "}
 				{to ? (
 					<>
-						<span className={styles.name}>{to}</span>
+						<i>{to}</i>
 						...
 					</>
 				) : (
@@ -65,7 +64,7 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ imag
 			</p>
 
 			<div className={styles.imageWrapper}>
-				<Image src={imagePath} layout="fill" objectFit="contain" alt="A wholesome gif" />
+				<img className={styles.image} src={imagePath} alt="A wholesome gif" srcSet={imagePath} />
 			</div>
 			{/* <p className={styles.tip}>If you like them then feel free to do that!</p> */}
 		</div>
