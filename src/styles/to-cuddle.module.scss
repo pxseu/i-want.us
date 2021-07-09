@@ -28,6 +28,7 @@
 	background-color: hsl(354, 76%, 93%);
 	width: 400px;
 	height: 300px;
+	will-change: transform;
 	transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 }
 
