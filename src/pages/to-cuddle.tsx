@@ -53,7 +53,7 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ imag
 				Hey{" "}
 				{to ? (
 					<>
-						<span className={styles.name}>{to}</span>
+						<i>{to}</i>
 						...
 					</>
 				) : (
