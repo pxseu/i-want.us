@@ -22,7 +22,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	try {
 		const queryTo = context.query.to;
 		if (typeof queryTo === "string") to = queryTo;
-	} catch (error) {
+	} catch (e) {
 		/* */
 	}
 
