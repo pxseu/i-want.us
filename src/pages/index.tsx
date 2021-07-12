@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import styles from "@/styles/Homepage.module.scss";
 
 const Home: FC = () => (
 	<div className={styles.contentWrapper}>
