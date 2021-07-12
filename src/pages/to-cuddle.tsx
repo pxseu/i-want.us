@@ -8,25 +8,18 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 
 const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ imagePath, from, to, hostname }) => (
 	<>
-		<MetaTags hostname={hostname!} imagePath={imagePath} />
+		<MetaTags
+			hostname={hostname!}
+			imagePath={imagePath}
+			text={`Hey${to ? ` ${to}` : ""}, wanna cuddle together?`}
+		/>
 		<div className={styles.contentWrapper}>
-			<p className={styles.welcome}>
-				Hey{" "}
-				{to ? (
-					<>
-						<i>{to}</i>
-						...
-					</>
-				) : (
-					"you..."
-				)}
-			</p>
+			<p className={styles.welcome}>Hey {to ? <i>{to}</i> : "you"}...</p>
 			<p className={styles.message}>{from ? <i>{from}</i> : "Someone"} wants you to cuddle with them!</p>
 
 			<div className={styles.imageWrapper}>
 				<img className={styles.image} src={imagePath} alt="A wholesome gif" srcSet={imagePath} />
 			</div>
-			{/* <p className={styles.tip}>If you like them then feel free to do that!</p> */}
 		</div>
 	</>
 );

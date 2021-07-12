@@ -1,14 +1,9 @@
 import React, { FC } from "react";
+import styles from "@/styles/Homepage.module.scss";
 
 const Home: FC = () => (
-	<div>
-		<h1
-			style={{
-				textAlign: "center",
-			}}
-		>
-			Hello
-		</h1>
+	<div className={styles.contentWrapper}>
+		<p className={styles.title}>Hello</p>
 	</div>
 );
 
