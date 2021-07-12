@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import styles from "@/styles/to-cuddle.module.scss";
+import styles from "@/styles/GifDisplay.module.scss";
 import { getServerSideImage } from "@/utils/getServerSideImage";
 import MetaTags from "@/comp/metaTags";
 
