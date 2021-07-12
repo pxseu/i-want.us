@@ -4,9 +4,10 @@ import React, { FC } from "react";
 interface IMetaTags {
 	hostname: string;
 	imagePath: string;
+	text: string;
 }
 
-const MetaTags: FC<IMetaTags> = ({ hostname, imagePath }) => (
+const MetaTags: FC<IMetaTags> = ({ hostname, imagePath, text }) => (
 	<Head>
 		<meta name="msapplication-TileColor" content="#f52e77" />
 		<meta name="theme-color" content="#f52e77" />
@@ -18,7 +19,7 @@ const MetaTags: FC<IMetaTags> = ({ hostname, imagePath }) => (
 		<meta property="og:image" content={imagePath} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="i-want.us" />
-		<meta name="twitter:description" content="Wanna cuddle together?" />
+		<meta name="twitter:description" content={text} />
 		<meta name="twitter:image" content={imagePath} />
 	</Head>
 );
