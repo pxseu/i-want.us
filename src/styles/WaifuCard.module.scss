@@ -1,7 +1,7 @@
-$wrapperHeigth: 562px;
-$wrapperWidth: 500px;
+$wrapperHeigth: 542px;
+$wrapperWidth: 470px;
 
-$imageHeigth: 562px;
+$imageHeigth: 542px;
 
 .waifuWrapper {
 	position: relative;
@@ -14,7 +14,7 @@ $imageHeigth: 562px;
 
 .waifuImage {
 	display: block;
-	margin-left: -3.5em;
+	margin-left: -3.8em;
 	height: $imageHeigth;
 	user-select: none;
 	pointer-events: none;
@@ -34,7 +34,7 @@ $imageHeigth: 562px;
 	user-select: none;
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 950px) {
 	.waifuWrapper {
 		height: #{$wrapperHeigth * 0.8};
 		width: #{$wrapperWidth * 0.8};
