@@ -7,9 +7,13 @@ $imageHeigth: 542px;
 	position: relative;
 	height: $wrapperHeigth;
 	width: $wrapperWidth;
-	background: #f8a6b4;
+	background: var(--font-color);
 	box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.25);
 	border-radius: 7px;
+
+	&:hover {
+		animation: fronte 0.3s ease-in-out forwards;
+	}
 }
 
 .waifuImage {
@@ -30,7 +34,7 @@ $imageHeigth: 542px;
 	line-height: 1.5em;
 	text-align: center;
 	text-transform: uppercase;
-	color: #fce9ea;
+	color: var(--background);
 	user-select: none;
 }
 
@@ -64,5 +68,17 @@ $imageHeigth: 542px;
 	}
 	.cardTitle {
 		font-size: 3.5em;
+	}
+}
+
+@keyframes fronte {
+	from {
+		// opacity: 0.8;
+	}
+	to {
+		z-index: 4;
+		transform: scale(1.03);
+		opacity: 1;
+		box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.315);
 	}
 }

@@ -5,18 +5,17 @@
 
 .slogan {
 	max-width: 600px;
-	font-family: Poppins, sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 4em;
 	line-height: 1.5em;
 	text-align: center;
-	color: #f8a6b4;
+	color: var(--font-color);
 }
 
 .attention {
 	font-weight: 800;
-	color: #ff7e95;
+	color: var(--brand);
 }
 
 .cardWrapper {
@@ -33,22 +32,5 @@
 
 .secondCard {
 	margin-left: -80px;
-	background-color: #d99fa9;
-}
-
-.firstCard:hover,
-.secondCard:hover {
-	animation: fronte 0.3s ease-in-out forwards;
-}
-
-@keyframes fronte {
-	from {
-		opacity: 0.8;
-	}
-	to {
-		z-index: 4;
-		transform: scale(1.03);
-		opacity: 1;
-		box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.315);
-	}
+	background-color: var(--card-bg);
 }

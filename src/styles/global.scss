@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&family=Poppins:wght@600;900&display=swap");
 
+:root {
+	--background: #fce9ea;
+	--brand: #ff7e95;
+	--font-color: #f8a6b4;
+	--card-bg: #d99fa9;
+	--fonts: Poppins, sans-serif;
+}
+
 *,
 *::after,
 *::before {
@@ -9,7 +17,8 @@
 }
 
 body {
-	background-color: hsl(354, 76%, 95%);
+	font-family: var(--fonts);
+	background-color: var(--background);
 	font-size: 16px;
 }
 
@@ -19,7 +28,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 950px) {
 	body {
 		font-size: 13px;
 	}
