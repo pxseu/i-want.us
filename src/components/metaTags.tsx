@@ -1,5 +1,5 @@
-import Head from "next/head";
 import React, { FC } from "react";
+import Head from "next/head";
 
 interface IMetaTags {
 	hostname: string;
