@@ -3,11 +3,11 @@ import Head from "next/head";
 
 interface IMetaTags {
 	hostname: string;
-	imagePath: string;
+	url: string;
 	text: string;
 }
 
-const MetaTags: FC<IMetaTags> = ({ hostname, imagePath, text }) => (
+const MetaTags: FC<IMetaTags> = ({ hostname, url, text }) => (
 	<Head>
 		<meta name="msapplication-TileColor" content="#f52e77" />
 		<meta name="theme-color" content="#f52e77" />
@@ -16,11 +16,11 @@ const MetaTags: FC<IMetaTags> = ({ hostname, imagePath, text }) => (
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:site_name" content="i-want.us" />
 		<meta property="og:title" content="i-want.us" />
-		<meta property="og:image" content={imagePath} />
+		<meta property="og:image" content={url} />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="i-want.us" />
 		<meta name="twitter:description" content={text} />
-		<meta name="twitter:image" content={imagePath} />
+		<meta name="twitter:image" content={url} />
 	</Head>
 );
 
