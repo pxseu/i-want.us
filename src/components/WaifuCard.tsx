@@ -1,74 +1,38 @@
 import React, { FC } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-interface IWaifuCard {
-	title: string;
-	image: string;
-	className?: string;
+interface WrapperProps {
+	secondary?: boolean;
+	"data-rotate"?: string;
 }
 
-const fronte = keyframes`
-	from {
-		background: none;
-	}
+const initialMargin = -370;
+const finalMargin = -80;
 
-	to {
-		z-index: 4;
-		transform: scale(1.03);
-		opacity: 1;
-		box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.315);
-	}
-`;
-
-const stackOut = keyframes`
-	from {
-		margin-left: -470px;
-	}
-	to {
-		margin-left: -80px;
-	}
-`;
-
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div as FC<WrapperProps & HTMLMotionProps<"div">>)`
 	position: relative;
 	height: 540px;
 	width: 470px;
 	overflow: visible;
 	box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, 0.25);
 	border-radius: 7px;
-	background-color: ${({ theme }) => theme.colors.font};
+	--rotate: ${(props) => props["data-rotate"]};
+	--final-margin: ${({ secondary }) => (secondary ? finalMargin : 0)}px;
+	${({ secondary }) => (secondary ? `margin-left: ${finalMargin}px;` : "z-index: 2;")}
+	transform: rotate(var(--rotate));
+	transition: all 0.1s ease-out;
 
 	&::after {
 		content: "";
 		width: 100%;
 		height: 100%;
-		background-color: ${({ theme }) => theme.colors.font};
+		background-color: ${({ theme, secondary }) => (secondary ? theme.colors.card : theme.colors.font)};
 		position: absolute;
 		border-radius: 7px;
 		top: 0;
 		left: 0;
 		z-index: -1;
-		opacity: 0.9;
-	}
-
-	/* &:hover {
-		animation: ${fronte} 0.3s ease-in-out forwards;
-	} */
-
-	&:nth-of-type(1) {
-		z-index: 2;
-		transform: rotate(-2deg);
-	}
-
-	&:nth-of-type(2) {
-		transform: rotate(2deg);
-		margin-left: -80px;
-		background-color: ${({ theme }) => theme.colors.card};
-
-		&::after {
-			background-color: ${({ theme }) => theme.colors.card};
-		}
-		animation: ${stackOut} 0.4s ease-out forwards;
 	}
 `;
 
@@ -99,51 +63,54 @@ const Image = styled.img`
 	pointer-events: none;
 `;
 
-const WaifuCard: FC<IWaifuCard> = ({ title, image }) => (
-	<Wrapper>
-		<Title>{title}</Title>
-		<ImageWrapper>
-			<Image src={image} alt="A cute anime girl" />
-		</ImageWrapper>
-	</Wrapper>
-);
+interface IWaifuCard {
+	title: string;
+	image: string;
+	className?: string;
+	secondary?: boolean;
+	onClick?: React.MouseEventHandler<HTMLDivElement>;
+}
 
+const WaifuCard: FC<IWaifuCard> = ({ title, image, secondary, onClick }) => {
+	const rotate = secondary ? 2 : -2;
+	const margin = secondary ? finalMargin : 0;
+
+	return (
+		<Wrapper
+			animate={secondary && { marginLeft: [initialMargin, finalMargin] }}
+			transition={secondary ? { duration: 0.5, ease: "circOut" } : undefined}
+			whileHover={{
+				marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
+				transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
+				zIndex: [undefined, 2, 4],
+				boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
+				transition: { ease: "circOut", duration: 0.4 },
+			}}
+			secondary={secondary}
+			onClick={onClick}
+			data-rotate={`${rotate}deg`}
+		>
+			<Title>{title}</Title>
+			<ImageWrapper>
+				<Image src={image} alt="A cute anime girl" />
+			</ImageWrapper>
+		</Wrapper>
+	);
+};
 export default WaifuCard;
 
-/*
-@media screen and (min-width: 481px) and (max-width: 950px) {
-	.waifuWrapper {
-		height: #{$wrapperHeigth * 0.8};
-		width: #{$wrapperWidth * 0.8};
+/* 
+0% {
+		margin-left: var(--final-margin);
+	}	
+	50% {
+		margin-left: calc(var(--final-margin) * -1.05);
+		transform: scale(1.03) rotate(calc(var(--rotate) * 0.5));
 	}
-
-	.waifuImage {
-		display: block;
-		margin-left: -3.5em;
-		height: #{$imageHeigth * 0.8};
+	100% {
+		z-index: 4;
+		margin-left: var(--final-margin);
+		transform: scale(1.03) rotate(calc(var(--rotate) * 0.5));
+		
 	}
-
-	.cardTitle {
-		font-size: 3.7em;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.waifuWrapper {
-		height: #{$wrapperHeigth * 0.6};
-		width: #{$wrapperWidth * 0.6};
-	}
-
-	.waifuImage {
-		display: block;
-		margin-left: -3.5em;
-		height: #{$imageHeigth * 0.6};
-	}
-	.cardTitle {
-		font-size: 3.5em;
-	}
-}
-
-@keyframes fronte {
-	
-} */
+*/

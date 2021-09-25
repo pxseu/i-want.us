@@ -4,10 +4,14 @@ import Link from "next/link";
 
 const Header = styled.header`
 	position: sticky;
+	top: 0;
 	display: flex;
 	width: 100%;
 	padding: ${({ theme }) => theme.fontSize.m};
 	padding-bottom: ${({ theme }) => theme.fontSize.s};
+	background-color: ${({ theme }) => `${theme.colors.background}cc`};
+	backdrop-filter: blur(5px);
+	z-index: 10;
 `;
 
 const Text = styled.a`

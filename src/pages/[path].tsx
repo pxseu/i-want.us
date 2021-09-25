@@ -48,7 +48,8 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 
 const Position = styled.div`
 	display: flex;
-	min-height: 100%;
+	flex: 1;
+	height: 100%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -112,11 +113,8 @@ const ImageWrapper = styled.div`
 	position: relative;
 	background-color: ${({ theme }) => theme.colors.background};
 	will-change: transform;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-	-webkit-transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-	-moz-transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-	-ms-transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
-	-o-transition: box-shadow 200ms ease-in-out, transform 200ms ease-in-out;
 	border-radius: 15px;
 	overflow: hidden;
 
