@@ -77,17 +77,22 @@ const WaifuCard: FC<IWaifuCard> = ({ title, image, secondary, onClick }) => {
 
 	return (
 		<Wrapper
-			animate={secondary && { marginLeft: [initialMargin, finalMargin] }}
+			variants={{
+				initial: {
+					zIndex: secondary ? 2 : 4,
+				},
+				hover: {
+					marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
+					transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
+					zIndex: 4,
+					boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
+				},
+				loaded: { marginLeft: secondary ? [initialMargin, finalMargin] : undefined },
+			}}
+			animate="loaded"
 			transition={{ duration: 0.5, ease: "circOut" }}
-			initial={{
-				zIndex: secondary ? 2 : 4,
-			}}
-			whileHover={{
-				marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
-				transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
-				zIndex: 4,
-				boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
-			}}
+			initial="initial"
+			whileHover="hover"
 			secondary={secondary}
 			onClick={onClick}
 			data-rotate={`${rotate}deg`}

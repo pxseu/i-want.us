@@ -2,6 +2,17 @@ import type { AppProps } from "next/app";
 import Theme, { theme } from "@/comp/Theme";
 import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
+import "nprogress/nprogress.css";
+import NProgress from "nprogress";
+import Router from "next/router";
+
+NProgress.configure({
+	showSpinner: false,
+});
+
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
 const Global = createGlobalStyle`
     *,
@@ -14,11 +25,25 @@ const Global = createGlobalStyle`
 
     body {
         font-family: ${theme.fonts.join(", ")};
-        background-color:  ${theme.colors.background};
+        background-color: ${theme.colors.background};
         font-size: 16px;
 		width: 100%;
 		height: 100%;
+		
     }
+
+	#nprogress .bar {
+		background: ${theme.colors.brand} !important;
+	}
+
+	#nprogress .peg {
+		box-shadow: 0 0 10px ${theme.colors.brand}, 0 0 5px ${theme.colors.brand};
+	}
+
+	#nprogress .spinner-icon {
+		border-top-color: ${theme.colors.brand};
+		border-left-color: ${theme.colors.brand};
+	}
 `;
 
 const App = ({ Component, pageProps }: AppProps) => (

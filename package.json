@@ -13,12 +13,14 @@
 		"framer-motion": "^4.1.17",
 		"next": "11.0.1",
 		"node-fetch": "^2.6.1",
+		"nprogress": "^0.2.0",
 		"react": "17.0.2",
 		"react-dom": "17.0.2",
 		"styled-components": "^5.3.1"
 	},
 	"devDependencies": {
 		"@types/node-fetch": "^2.5.11",
+		"@types/nprogress": "^0.2.0",
 		"@types/react": "17.0.14",
 		"@types/styled-components": "^5.1.14",
 		"@typescript-eslint/eslint-plugin": "^4.4.1",

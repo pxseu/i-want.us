@@ -9,6 +9,7 @@ const ContentWrapper = styled.div`
 `;
 
 const Slogan = styled.h1`
+	margin-top: 20px;
 	max-width: 600px;
 	font-style: normal;
 	font-weight: 600;
