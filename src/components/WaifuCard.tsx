@@ -7,7 +7,7 @@ interface WrapperProps {
 	"data-rotate"?: string;
 }
 
-const initialMargin = -370;
+const initialMargin = 80;
 const finalMargin = -80;
 
 const Wrapper = styled(motion.div as FC<WrapperProps & HTMLMotionProps<"div">>)`
@@ -78,13 +78,15 @@ const WaifuCard: FC<IWaifuCard> = ({ title, image, secondary, onClick }) => {
 	return (
 		<Wrapper
 			animate={secondary && { marginLeft: [initialMargin, finalMargin] }}
-			transition={secondary ? { duration: 0.5, ease: "circOut" } : undefined}
+			transition={{ duration: 0.5, ease: "circOut" }}
+			initial={{
+				zIndex: secondary ? 2 : 4,
+			}}
 			whileHover={{
 				marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
 				transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
-				zIndex: [undefined, 2, 4],
+				zIndex: 4,
 				boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
-				transition: { ease: "circOut", duration: 0.4 },
 			}}
 			secondary={secondary}
 			onClick={onClick}
