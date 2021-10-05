@@ -21,6 +21,7 @@ declare module "styled-components" {
 			l: "2em";
 			xl: "3em";
 			xxl: "4em";
+			logo: "1.8em";
 		};
 	}
 }

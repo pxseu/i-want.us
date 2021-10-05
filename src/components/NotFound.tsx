@@ -1,23 +1,17 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
-`;
+import CenteredCard from "./CenteredCard";
 
 const Text = styled.p`
 	font-size: ${({ theme }) => theme.fontSize.l};
-	color: ${({ theme }) => theme.colors.brand};
+	color: ${({ theme }) => theme.colors.background};
+	text-align: center;
 `;
 
 const LinkText = styled.a`
 	font-size: ${({ theme }) => theme.fontSize.m};
-	color: ${({ theme }) => theme.colors.brand};
+	color: ${({ theme }) => theme.colors.background};
 	transition: color 0.3s ease;
 
 	&:hover {
@@ -26,12 +20,12 @@ const LinkText = styled.a`
 `;
 
 const NotFound: FC = () => (
-	<Wrapper>
+	<CenteredCard>
 		<Text>The address you were looking for was not found.</Text>
 		<Link href="/" passHref>
 			<LinkText>Go home</LinkText>
 		</Link>
-	</Wrapper>
+	</CenteredCard>
 );
 
 export default NotFound;

@@ -10,7 +10,7 @@ export const theme: DefaultTheme = {
 		dots: "#ffd0d0",
 	},
 	fonts: ["Poppins", "sans-serif"],
-	fontSize: { s: "1em", m: "1.5em", l: "2em", xl: "3em", xxl: "4em" },
+	fontSize: { s: "1em", m: "1.5em", l: "2em", xl: "3em", xxl: "4em", logo: "1.8em" },
 };
 
 const Theme: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;

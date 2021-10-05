@@ -11,14 +11,14 @@ const Header = styled.header`
 	padding-bottom: ${({ theme }) => theme.fontSize.s};
 	background-color: ${({ theme }) => `${theme.colors.dots}cc`};
 	backdrop-filter: blur(5px);
-	padding: 10px 5px;
+	padding: 5px 5px;
 	z-index: 10;
 `;
 
 const Text = styled.a`
 	margin-left: 10px;
 	font-weight: 900;
-	font-size: ${(props) => props.theme.fontSize.l};
+	font-size: ${(props) => props.theme.fontSize.logo};
 	color: ${(props) => props.theme.colors.brand};
 	text-decoration: none;
 `;
