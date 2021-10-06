@@ -27,6 +27,7 @@
     "import/prefer-default-export": "off",
     "consistent-return": "off",
     "no-restricted-syntax": "off",
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "react/require-default-props": "off"
   }
 }

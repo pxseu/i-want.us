@@ -1,6 +1,6 @@
+import React, { FC } from "react";
 import CenteredCard from "@/comp/CenteredCard";
 import Layout from "@/comp/layout";
-import React, { FC } from "react";
 
 const CreateUrl: FC = () => (
 	<Layout>

@@ -66,7 +66,6 @@ const Image = styled.img`
 interface IWaifuCard {
 	title: string;
 	image: string;
-	className?: string;
 	secondary?: boolean;
 	onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
@@ -104,20 +103,5 @@ const WaifuCard: FC<IWaifuCard> = ({ title, image, secondary, onClick }) => {
 		</Wrapper>
 	);
 };
-export default WaifuCard;
 
-/* 
-0% {
-		margin-left: var(--final-margin);
-	}	
-	50% {
-		margin-left: calc(var(--final-margin) * -1.05);
-		transform: scale(1.03) rotate(calc(var(--rotate) * 0.5));
-	}
-	100% {
-		z-index: 4;
-		margin-left: var(--final-margin);
-		transform: scale(1.03) rotate(calc(var(--rotate) * 0.5));
-		
-	}
-*/
+export default WaifuCard;

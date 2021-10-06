@@ -2,8 +2,8 @@ import { GetServerSidePropsContext } from "next";
 import React, { FC } from "react";
 import { Message as MessageType, Paths } from "config/paths";
 import { Person } from "i-want.us";
-import MetaTags from "@/comp/MetaTags";
 import styled from "styled-components";
+import MetaTags from "@/comp/MetaTags";
 import Layout from "@/comp/layout";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
