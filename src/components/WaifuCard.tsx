@@ -33,6 +33,7 @@ const Wrapper = styled(motion.div as FC<WrapperProps & HTMLMotionProps<"div">>)`
 		top: 0;
 		left: 0;
 		z-index: -1;
+		cursor: pointer;
 	}
 `;
 
