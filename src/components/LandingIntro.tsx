@@ -1,8 +1,11 @@
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import styled from "styled-components";
+import Image from "next/image";
 import { InternalUrl } from "./Url";
 import WaifuCard from "./WaifuCard";
+import CuddleInAction from "../../public/assets/to-cuddle.png";
+import KissInAction from "../../public/assets/to-kiss.png";
 
 const ContentWrapper = styled.div`
 	display: flex;
@@ -56,6 +59,18 @@ const Line = styled.hr`
 	margin-top: 20px;
 `;
 
+const Images = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+`;
+
+const ImageWrapper = styled.div`
+	margin: 10px;
+`;
+
 const LandingIntro: FC = () => {
 	const router = useRouter();
 
@@ -66,6 +81,7 @@ const LandingIntro: FC = () => {
 					Show your love <Attention>without</Attention> the stress
 				</Slogan>
 			</ContentWrapper>
+
 			<CardWrapper>
 				<WaifuCard title="cuddle" image="/assets/cuddle-girl.png" onClick={() => router.push("/to-cuddle")} />
 				<WaifuCard
@@ -75,6 +91,19 @@ const LandingIntro: FC = () => {
 					onClick={() => router.push("/to-kiss")}
 				/>
 			</CardWrapper>
+
+			<ContentWrapper>
+				<Line />
+				<LowerSlogan>Here&apos;s it in action</LowerSlogan>
+				<Images>
+					<ImageWrapper>
+						<Image src={CuddleInAction} height={330} width={430} alt="" />
+					</ImageWrapper>
+					<ImageWrapper>
+						<Image src={KissInAction} height={330} width={430} alt="" />
+					</ImageWrapper>
+				</Images>
+			</ContentWrapper>
 
 			<ContentWrapper>
 				<Line />

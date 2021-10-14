@@ -24,6 +24,7 @@ const ChildrenWrapper = styled(motion.div)`
 	flex: 1;
 	font-family: ${({ theme }) => theme.fonts.join(", ")};
 	font-size: 16px;
+	/* margin: 0 10px; */
 `;
 
 const Layout: FC = ({ children }) => (
