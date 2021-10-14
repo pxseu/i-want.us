@@ -94,7 +94,7 @@ const LandingIntro: FC = () => {
 
 			<ContentWrapper>
 				<Line />
-				<LowerSlogan>Here&apos;s it in action</LowerSlogan>
+				<LowerSlogan>Here it is in action</LowerSlogan>
 				<Images>
 					<ImageWrapper>
 						<Image src={CuddleInAction} height={330} width={430} alt="" />

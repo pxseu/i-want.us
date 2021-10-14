@@ -155,7 +155,7 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 						<Select id="action" name="action" onChange={formik.handleChange} value={formik.values.action}>
 							{paths.map((path) => (
 								<option key={path} value={path}>
-									{path}
+									{path.replace(/-/g, " ")}
 								</option>
 							))}
 						</Select>{" "}

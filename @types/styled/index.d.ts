@@ -13,6 +13,7 @@ declare module "styled-components" {
 			font: "#f8a6b4";
 			card: "#d99fa9";
 			dots: "#ffd0d0";
+			darkDots: "#ffb0b0";
 		};
 		fonts: ["Poppins", "sans-serif"];
 		fontSize: {
