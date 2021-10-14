@@ -23,5 +23,9 @@ declare module "styled-components" {
 			xxl: "4em";
 			logo: "1.8em";
 		};
+		shadow: {
+			primary: "2px 2px 15px 2px rgba(0, 0, 0, 0.2)";
+			secondary: "5px 0px 5px 2px rgba(0, 0, 0, 0.1)";
+		};
 	}
 }

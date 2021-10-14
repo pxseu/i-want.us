@@ -20,7 +20,7 @@ const ContentWrapper = styled.div`
 	padding: 20px 20px;
 	background-color: ${({ theme }) => theme.colors.card};
 	border-radius: 20px;
-	box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: ${({ theme }) => theme.shadow.primary};
 `;
 
 const CenteredCard: FC = ({ children }) => (
