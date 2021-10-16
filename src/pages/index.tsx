@@ -1,11 +1,14 @@
 import React, { FC } from "react";
-import LandingIntro from "@/comp/LandingIntro";
+import FirstView from "@/comp/Landing/FirstView";
 import Layout from "@/comp/layout";
+import InAction from "@/comp/Landing/InAction";
+import UserQuestion from "@/comp/Landing/UserQuestion";
 
 const Home: FC = () => (
 	<Layout>
-		<LandingIntro />
-		{/* <CreateUrlDemo /> */}
+		<FirstView />
+		<InAction />
+		<UserQuestion />
 	</Layout>
 );
 

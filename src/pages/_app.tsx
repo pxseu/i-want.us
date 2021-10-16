@@ -29,7 +29,6 @@ const Global = createGlobalStyle`
         font-size: 16px;
 		width: 100%;
 		height: 100%;
-		
     }
 
 	#nprogress .bar {
@@ -43,6 +42,22 @@ const Global = createGlobalStyle`
 	#nprogress .spinner-icon {
 		border-top-color: ${theme.colors.brand};
 		border-left-color: ${theme.colors.brand};
+	}
+
+	::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	::-webkit-scrollbar-track {}
+
+	::-webkit-scrollbar-thumb {
+		background-color: ${theme.colors.brand}cf; 
+		border-radius: 10px;
+		transition-duration: 0.2s;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background-color: ${theme.colors.brand}88; 
 	}
 `;
 

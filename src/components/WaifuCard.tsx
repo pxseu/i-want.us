@@ -22,6 +22,7 @@ const Wrapper = styled(motion.div as FC<WrapperProps & HTMLMotionProps<"div">>)`
 	${({ secondary }) => (secondary ? `margin-left: ${finalMargin}px;` : "z-index: 2;")}
 	transform: rotate(var(--rotate));
 	transition: all 0.1s ease-out;
+	cursor: pointer;
 
 	&::after {
 		content: "";
@@ -33,7 +34,6 @@ const Wrapper = styled(motion.div as FC<WrapperProps & HTMLMotionProps<"div">>)`
 		top: 0;
 		left: 0;
 		z-index: -1;
-		cursor: pointer;
 	}
 `;
 
@@ -74,21 +74,22 @@ interface IWaifuCard {
 const WaifuCard: FC<IWaifuCard> = ({ title, image, secondary, onClick }) => {
 	const rotate = secondary ? 2 : -2;
 	const margin = secondary ? finalMargin : 0;
+	const variants = {
+		initial: {
+			zIndex: secondary ? 2 : 4,
+		},
+		hover: {
+			marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
+			transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
+			zIndex: 4,
+			boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
+		},
+		loaded: { marginLeft: secondary ? [initialMargin, finalMargin] : undefined },
+	};
 
 	return (
 		<Wrapper
-			variants={{
-				initial: {
-					zIndex: secondary ? 2 : 4,
-				},
-				hover: {
-					marginLeft: [`${margin}px`, `${margin * -0.5}px`, `${margin}px`],
-					transform: [`rotate(${rotate}deg) scale(1)`, `rotate(${rotate * 0.5}deg) scale(1.03)`],
-					zIndex: 4,
-					boxShadow: [undefined, undefined, "0px 0px 25px 2px rgba(0, 0, 0, 0.4)"],
-				},
-				loaded: { marginLeft: secondary ? [initialMargin, finalMargin] : undefined },
-			}}
+			variants={variants}
 			animate="loaded"
 			transition={{ duration: 0.5, ease: "circOut" }}
 			initial="initial"

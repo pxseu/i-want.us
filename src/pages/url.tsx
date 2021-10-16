@@ -138,7 +138,7 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 	}${searchParams}`;
 
 	return (
-		<Layout>
+		<Layout animate>
 			<CenteredCard>
 				<Title>Create your URL!</Title>
 				<Content onSubmit={formik.handleSubmit}>

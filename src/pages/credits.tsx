@@ -48,7 +48,7 @@ const Url = styled(ExternalUrl)`
 `;
 
 const CreateUrl: FC = () => (
-	<Layout>
+	<Layout animate>
 		<CenteredCard>
 			<Title>Credits</Title>
 			<Content>

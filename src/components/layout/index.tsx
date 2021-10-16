@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import React, { FC } from "react";
 import styled from "styled-components";
 import Footer from "./Footer";
@@ -24,19 +24,34 @@ const ChildrenWrapper = styled(motion.div)`
 	flex: 1;
 	font-family: ${({ theme }) => theme.fonts.join(", ")};
 	font-size: 16px;
+
+	@media (max-width: ${({ theme }) => theme.breakpoint.md}) {
+		font-size: 14px;
+	}
+
+	@media (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+		font-size: 12px;
+	}
 	/* margin: 0 10px; */
 `;
 
-const Layout: FC = ({ children }) => (
+const LayoutVariants: Variants = {
+	initial: {},
+	loaded: {
+		transform: ["scale(0.8)", "scale(1)"],
+		// opacity: [0, 1],
+		transition: { duration: 0.4, ease: "circOut" },
+	},
+};
+
+interface LayoutProps {
+	animate?: boolean;
+}
+
+const Layout: FC<LayoutProps> = ({ children, animate }) => (
 	<LayoutWrapper>
 		<Header />
-		<ChildrenWrapper
-			animate={{
-				transform: ["scale(0.8)", "scale(1)"],
-				opacity: [0, 1],
-				transition: { duration: 0.4, ease: "circOut" },
-			}}
-		>
+		<ChildrenWrapper variants={LayoutVariants} animate={animate && "loaded"}>
 			{children}
 		</ChildrenWrapper>
 		<Footer />

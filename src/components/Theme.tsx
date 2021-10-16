@@ -16,6 +16,7 @@ export const theme: DefaultTheme = {
 		primary: "2px 2px 15px 2px rgba(0, 0, 0, 0.2)",
 		secondary: "5px 0px 5px 2px rgba(0, 0, 0, 0.1)",
 	},
+	breakpoint: { md: "500px", sm: "300px" },
 };
 
 const Theme: FC = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
