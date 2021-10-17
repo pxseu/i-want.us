@@ -8,6 +8,7 @@ import Theme, { theme } from "@/comp/Theme";
 
 NProgress.configure({
 	showSpinner: false,
+	trickle: true,
 });
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -36,7 +37,7 @@ const Global = createGlobalStyle`
 	}
 
 	#nprogress .peg {
-		box-shadow: 0 0 10px ${theme.colors.brand}, 0 0 5px ${theme.colors.brand};
+		box-shadow: 0 0 15px ${theme.colors.brand}, 0 0 10px ${theme.colors.brand};
 	}
 
 	#nprogress .spinner-icon {

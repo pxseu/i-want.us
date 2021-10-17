@@ -17,7 +17,7 @@ const ContentWrapper = styled.div`
 	justify-content: center;
 	/* font-family: "Arvo", serif; */
 	margin: 10px 20px;
-	padding: 20px 20px;
+	padding: 20px 30px;
 	background-color: ${({ theme }) => theme.colors.card};
 	border-radius: 20px;
 	box-shadow: ${({ theme }) => theme.shadow.primary};

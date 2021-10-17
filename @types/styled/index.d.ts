@@ -14,6 +14,7 @@ declare module "styled-components" {
 			card: "#d99fa9";
 			dots: "#ffd0d0";
 			darkDots: "#ffb0b0";
+			embed: "#fff4f2";
 		};
 		fonts: ["Poppins", "sans-serif"];
 		fontSize: {
@@ -27,6 +28,8 @@ declare module "styled-components" {
 		shadow: {
 			primary: "2px 2px 15px 2px rgba(0, 0, 0, 0.2)";
 			secondary: "5px 0px 5px 2px rgba(0, 0, 0, 0.1)";
+			hover: "0px 0px 15px 2px rgba(0, 0, 0, 0.2)";
+			light: "0px 0px 5px 2px rgba(0, 0, 0, 0.1)";
 		};
 		breakpoint: { md: "500px"; sm: "300px" };
 	}

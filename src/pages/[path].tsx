@@ -39,10 +39,10 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 
 	return {
 		props: {
-			url: json.url as string,
+			url: json.url,
 			source: art.hostname,
 			message: path.message(reciever, author),
-			embed: path.embed(reciever),
+			embed: path.embed(reciever, author),
 			hostname: context.req.headers.host,
 		},
 	};

@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Head from "next/head";
+import { theme } from "./Theme";
 
 interface IMetaTags {
 	hostname: string;
@@ -9,8 +10,8 @@ interface IMetaTags {
 
 const MetaTags: FC<IMetaTags> = ({ hostname, url, text }) => (
 	<Head>
-		<meta name="msapplication-TileColor" content="#f52e77" />
-		<meta name="theme-color" content="#f52e77" />
+		<meta name="msapplication-TileColor" content={theme.colors.brand} />
+		<meta name="theme-color" content={theme.colors.brand} />
 		<meta property="og:url" content={hostname} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="en_US" />

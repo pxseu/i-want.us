@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { Attention } from "../Attention";
 import WaifuCard from "../WaifuCard";
 import { ContentWrapper, Slogan } from "./common";
+import cuddle from "../../../public/assets/cuddle-girl.png";
+import kiss from "../../../public/assets/kiss-girl.png";
 
 const CardWrapper = styled.div`
 	padding: 50px 0;
@@ -24,13 +26,8 @@ const FirstView: FC = () => {
 				</Slogan>
 			</ContentWrapper>
 			<CardWrapper>
-				<WaifuCard title="cuddle" image="/assets/cuddle-girl.png" onClick={() => router.push("/to-cuddle")} />
-				<WaifuCard
-					title="kiss"
-					image="/assets/kiss-girl.png"
-					secondary
-					onClick={() => router.push("/to-kiss")}
-				/>
+				<WaifuCard title="cuddle" image={cuddle.src} onClick={() => router.push("/to-cuddle")} />
+				<WaifuCard title="kiss" image={kiss.src} secondary onClick={() => router.push("/to-kiss")} />
 			</CardWrapper>
 		</div>
 	);

@@ -13,7 +13,8 @@ const Footer = styled.footer`
 	justify-content: center;
 	align-items: center;
 	padding: 6px 15px;
-	margin-top: 30px;
+	/* margin-top: 30px; */
+	margin: 0;
 	z-index: 10;
 `;
 

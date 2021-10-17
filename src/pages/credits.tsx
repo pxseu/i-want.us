@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import CenteredCard from "@/comp/CenteredCard";
 import Layout from "@/comp/layout";
-import { alistair, pxseu, looskie } from "@/conf/externalUrls";
+import { alistair, pxseu, looskie, nekosLife, asunaGa } from "@/conf/externalUrls";
 import { ExternalUrl } from "@/comp/Url";
 
 const Title = styled.h1`
@@ -31,14 +31,14 @@ const Content = styled.ul`
 	padding: 5px;
 `;
 
-const Person = styled.li`
+const Element = styled.li`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	color: ${({ theme }) => theme.colors.background};
-	margin-top: 5px;
-	padding: 2px;
+	margin-top: 2px;
+	padding: 0px;
 `;
 
 const Url = styled(ExternalUrl)`
@@ -50,17 +50,27 @@ const Url = styled(ExternalUrl)`
 const CreateUrl: FC = () => (
 	<Layout animate>
 		<CenteredCard>
-			<Title>Credits</Title>
+			<Title>Development</Title>
 			<Content>
-				<Person>
+				<Element>
 					<Url href={pxseu}>pxseu - Idea and Development</Url>
-				</Person>
-				<Person>
+				</Element>
+				<Element>
 					<Url href={alistair}>Alistair - Domain name</Url>
-				</Person>
-				<Person>
+				</Element>
+				<Element>
 					<Url href={looskie}>Looskie - Design and help</Url>
-				</Person>
+				</Element>
+			</Content>
+
+			<Title>Images</Title>
+			<Content>
+				<Element>
+					<Url href={nekosLife}>Nekos.Life</Url>
+				</Element>
+				<Element>
+					<Url href={asunaGa}>Asuna.ga</Url>
+				</Element>
 			</Content>
 		</CenteredCard>
 	</Layout>

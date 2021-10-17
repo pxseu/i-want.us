@@ -10,7 +10,7 @@ export interface Art {
 
 export interface IPath {
 	message: (recieve: string | null, author: string | null) => Message;
-	embed: (recieve: string | null) => string;
+	embed: (recieve: string | null, author: string | null) => string;
 	random(): Art;
 }
 
