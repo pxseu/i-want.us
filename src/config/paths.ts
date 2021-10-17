@@ -1,3 +1,5 @@
+import { IN_ACTION_CUDDLE, IN_ACTION_KISS } from "./inAction";
+
 export interface Message {
 	title: string;
 	message: string;
@@ -12,6 +14,7 @@ export interface IPath {
 	message: (recieve: string | null, author: string | null) => Message;
 	embed: (recieve: string | null, author: string | null) => string;
 	random(): Art;
+	placeholders: string[];
 }
 
 export interface IPaths {
@@ -50,6 +53,7 @@ export const Paths = {
 				"https://nekos.life/api/v2/img/": { source: "https://nekos.life", endpoints: ["hug", "cuddle"] },
 				"https://asuna.ga/api/": { source: "https://asuna.ga", endpoints: ["hug"] },
 			}),
+		placeholders: IN_ACTION_CUDDLE.map(({ url }) => url),
 	},
 	"to-kiss": {
 		message(reciever, author) {
@@ -66,5 +70,6 @@ export const Paths = {
 				"https://nekos.life/api/v2/img/": { source: "https://nekos.life", endpoints: ["kiss"] },
 				"https://asuna.ga/api/": { source: "https://asuna.ga", endpoints: ["kiss"] },
 			}),
+		placeholders: IN_ACTION_KISS.map(({ url }) => url),
 	},
 } as IPaths;

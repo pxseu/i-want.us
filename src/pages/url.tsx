@@ -6,6 +6,7 @@ import CenteredCard from "@/comp/CenteredCard";
 import Layout from "@/comp/layout";
 import { Paths } from "@/conf/paths";
 import { ExternalUrl } from "@/comp/Url";
+import Embed from "@/comp/Landing/Embed";
 
 const Title = styled.h1`
 	text-align: center;
@@ -80,10 +81,12 @@ const Messsage = styled(Title)`
 `;
 
 const Url = styled(ExternalUrl)`
-	margin: 0;
+	margin: 10px 0 0 0;
 	color: ${({ theme }) => theme.colors.background};
 	text-decoration: underline;
 	text-align: center;
+	max-width: 400px;
+	word-wrap: break-word;
 `;
 
 const Line = styled.hr`
@@ -92,6 +95,10 @@ const Line = styled.hr`
 	border: 0;
 	background-color: ${({ theme }) => theme.colors.background};
 	margin-top: 20px;
+`;
+
+const EmbedWrapper = styled.div`
+	margin-top: 10px;
 `;
 
 export const getStaticProps = async () => {
@@ -103,6 +110,9 @@ export const getStaticProps = async () => {
 		},
 	};
 };
+
+const randomImage = (value: string) =>
+	Paths[value].placeholders[Math.floor(Math.random() * Paths[value].placeholders.length)];
 
 const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }) => {
 	const [hostname, setHostname] = useState("");
@@ -122,6 +132,8 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 
 	const [searchParams, setSearchParams] = useState("");
 
+	const [embedImage, setEmbedAction] = useState(randomImage(formik.values.action));
+
 	useEffect(() => {
 		if (!formik.values.author && !formik.values.reciever) return setSearchParams("");
 
@@ -132,6 +144,10 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 
 		return setSearchParams(`?${params.toString()}`);
 	}, [formik.values]);
+
+	useEffect(() => {
+		setEmbedAction(randomImage(formik.values.action));
+	}, [formik.values.action]);
 
 	const url = `http${process.env.NODE_ENV === "development" ? "" : "s"}://${hostname}/${
 		formik.values.action
@@ -172,7 +188,13 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 				</Content>
 				<Line />
 				<Wrapper>
-					<Messsage>Output:</Messsage>
+					<Messsage>Preview:</Messsage>
+					<EmbedWrapper>
+						<Embed
+							title={Paths[formik.values.action].embed(formik.values.reciever, formik.values.author)}
+							url={embedImage}
+						/>
+					</EmbedWrapper>
 					<Url href={url}>{url}</Url>
 				</Wrapper>
 			</CenteredCard>

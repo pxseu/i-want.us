@@ -7,6 +7,7 @@ interface EmbedProps {
 }
 
 const Wrapper = styled.div`
+	max-width: 500px;
 	margin: 5px;
 	display: flex;
 	flex-direction: column;
@@ -33,6 +34,7 @@ const Domain = styled.p`
 
 const Title = styled.p`
 	font-size: 0.95rem;
+	word-break: break-word;
 `;
 
 const ImageWrapper = styled.div`
