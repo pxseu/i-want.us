@@ -5,7 +5,7 @@ import Link from "next/link";
 const Url = styled.a`
 	margin-left: 0.5rem;
 	text-decoration: none;
-	color: ${({ theme }) => theme.colors.font};
+	color: ${({ theme }) => theme.colors.brand};
 	font-size: ${({ theme }) => theme.fontSize.m};
 	/* font-weight: bold;
 	text-transform: uppercase;
