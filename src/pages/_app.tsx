@@ -5,6 +5,8 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import Router from "next/router";
 import Theme, { theme } from "@/comp/Theme";
+import MetaTags from "@/comp/MetaTags";
+import EmbedImg from "../../public/assets/embed.png";
 
 NProgress.configure({
 	showSpinner: false,
@@ -77,6 +79,10 @@ const App = ({ Component, pageProps }: AppProps) => (
 				href="https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&family=Poppins:wght@600;900&display=swap"
 			/>
 		</Head>
+		<MetaTags
+			url={EmbedImg.src}
+			text="Show your loved one your feelings easily with this SAAS (Show your loves As A Service)"
+		/>
 		<Global />
 		<Wrapper>
 			<Component {...pageProps} />

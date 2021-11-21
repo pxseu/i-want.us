@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import styled from "styled-components";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import ClientOnlyPortal from "../Portal";
 
 const paths = {
+	Home: "/",
 	Create: "/url",
 	Credits: "/credits",
 } as const;
@@ -117,19 +118,24 @@ const Header = styled.header`
 	z-index: 10;
 `;
 
-const NavUrlsMemo = (() => {
-	const NavUrls: FC = () => (
+interface INavUrlsMemo {
+	small: boolean;
+}
+
+const NavUrls: FC<INavUrlsMemo> = ({ small }) => {
+	const pathArr = Object.keys(paths);
+	const localPaths = !small ? pathArr.filter((path) => path !== "Home") : pathArr;
+
+	return (
 		<>
-			{Object.keys(paths).map((key) => (
+			{localPaths.map((key) => (
 				<InternalUrl key={key} href={paths[key as keyof typeof paths]}>
 					{key}
 				</InternalUrl>
 			))}
 		</>
 	);
-
-	return memo(NavUrls);
-})();
+};
 
 const navVariants: Variants = {
 	initial: {
@@ -236,7 +242,7 @@ const FuncHeader: FC = () => {
 							transition={{ duration: 0.1, delayChildren: 0.2 }}
 						>
 							<NavMobile variants={navVariants}>
-								<NavUrlsMemo />
+								<NavUrls small={state.small} />
 							</NavMobile>
 							<Position>
 								<NavButton onClick={() => dispatch({ type: "toggle" })} open={state.open} />
@@ -252,7 +258,7 @@ const FuncHeader: FC = () => {
 						<NavButton onClick={() => dispatch({ type: "toggle" })} open={state.open} />
 					) : (
 						<Nav>
-							<NavUrlsMemo />
+							<NavUrls small={state.small} />
 						</Nav>
 					))}
 			</Header>
