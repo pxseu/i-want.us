@@ -6,7 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"format": "npx prettier --write \"./**/*.{ts,js,json,md}\"",
+		"format": "npx prettier --write \"./**/*.{ts,tsx}\"",
 		"lint": "npx eslint . --ext .ts,.tsx"
 	},
 	"dependencies": {
