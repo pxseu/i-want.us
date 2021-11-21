@@ -28,7 +28,7 @@ const UserQuestion: FC = () => (
 		<MainText>
 			<Link href="/url" passHref>
 				<ClickableLink>
-					<Attention letterSpacing={0.024}>Try it out</Attention>
+					<Attention>Try it out</Attention>
 				</ClickableLink>
 			</Link>
 		</MainText>
