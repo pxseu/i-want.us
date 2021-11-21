@@ -9,12 +9,14 @@ declare module "styled-components" {
 	export interface DefaultTheme {
 		colors: {
 			background: "#fce9ea";
-			brand: "#ff7e95";
+			brand: "#ffa2b3";
+			brandDark: "#ff5892";
 			font: "#f8a6b4";
-			card: "#d99fa9";
+			fontDark: "#d99fa9";
 			dots: "#ffd0d0";
 			darkDots: "#ffb0b0";
 			embed: "#fff4f2";
+			header: "#FFDDDF";
 		};
 		fonts: ["Poppins", "sans-serif"];
 		fontSize: {
@@ -31,6 +33,6 @@ declare module "styled-components" {
 			hover: "0px 0px 15px 2px rgba(0, 0, 0, 0.2)";
 			light: "0px 0px 5px 2px rgba(0, 0, 0, 0.1)";
 		};
-		breakpoint: { md: "500px"; sm: "300px" };
+		breakpoint: { xlg: "1000px"; lg: "700px"; md: "500px"; sm: "300px" };
 	}
 }

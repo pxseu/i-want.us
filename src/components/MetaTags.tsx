@@ -3,12 +3,12 @@ import Head from "next/head";
 import { theme } from "./Theme";
 
 interface IMetaTags {
-	hostname: string;
+	hostname?: string;
 	url: string;
 	text: string;
 }
 
-const MetaTags: FC<IMetaTags> = ({ hostname, url, text }) => (
+const MetaTags: FC<IMetaTags> = ({ hostname = "https://i-want.us", url, text }) => (
 	<Head>
 		<meta name="msapplication-TileColor" content={theme.colors.brand} />
 		<meta name="theme-color" content={theme.colors.brand} />

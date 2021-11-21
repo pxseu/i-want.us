@@ -1,17 +1,12 @@
 import { IN_ACTION_CUDDLE, IN_ACTION_KISS } from "./inAction";
 
-export interface Message {
-	title: string;
-	message: string;
-}
-
 export interface Art {
 	url: string;
 	hostname: string;
 }
 
 export interface IPath {
-	message: (recieve: string | null, author: string | null) => Message;
+	message: (recieve: string | null, author: string | null) => string;
 	embed: (recieve: string | null, author: string | null) => string;
 	random(): Art;
 	placeholders: string[];
@@ -22,7 +17,7 @@ export interface IPaths {
 }
 
 const defaults = {
-	author: "Someone",
+	author: "someone",
 	reciever: "you",
 } as const;
 
@@ -40,13 +35,10 @@ const getRandomPath = (path: { [key: string]: { source: string; endpoints: strin
 export const Paths = {
 	"to-cuddle": {
 		message(reciever, author) {
-			return {
-				title: `Hey${reciever ? ` ${reciever}` : ""}...`,
-				message: `${author ?? defaults.author} wants to cuddle with you!`,
-			};
+			return `Hey ${reciever || defaults.reciever}, ${author || defaults.author} wants to cuddle with you!`;
 		},
-		embed(reciever) {
-			return `Hey${reciever ? ` ${reciever}` : ""}, wanna cuddle together?`;
+		embed(reciever, author) {
+			return `Hey${reciever ? ` ${reciever}` : ""}, wanna cuddle together?\n- ${author || defaults.author}`;
 		},
 		random: () =>
 			getRandomPath({
@@ -57,13 +49,10 @@ export const Paths = {
 	},
 	"to-kiss": {
 		message(reciever, author) {
-			return {
-				title: `Hey${reciever ? ` ${reciever}` : ""}...`,
-				message: `${author ?? defaults.author} wants to kiss you!`,
-			};
+			return `Hey${reciever ? ` ${reciever}` : ""}, ${author ?? defaults.author} wants to kiss you!`;
 		},
-		embed(reciever) {
-			return `Hey${reciever ? ` ${reciever}` : ""}, wanna share a kiss?`;
+		embed(reciever, author) {
+			return `Hey${reciever ? ` ${reciever}` : ""}, wanna share a kiss?\n- ${author || defaults.author}`;
 		},
 		random: () =>
 			getRandomPath({

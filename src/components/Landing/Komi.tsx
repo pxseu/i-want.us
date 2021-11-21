@@ -5,10 +5,14 @@ import styled from "styled-components";
 import komi from "../../../public/assets/komi.png";
 
 const Wrapper = styled.div`
-	display: inline-block;
-	position: relative;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 	/* background-color: #fafafa; */
 	overflow: hidden;
+	max-width: 550px;
 `;
 
 const variants: Variants = {
@@ -27,13 +31,14 @@ const variants: Variants = {
 };
 
 const StyledImage = styled(motion.img)`
-	display: inline !important;
+	display: inline;
 	transform: translateY(55%);
+	width: 100%;
 `;
 
 const Komi: FC = () => {
 	const controler = useAnimation();
-	const { ref, inView } = useInView({ threshold: 0.8 });
+	const { ref, inView } = useInView({ threshold: 0.6 });
 
 	useEffect(() => {
 		if (inView) {

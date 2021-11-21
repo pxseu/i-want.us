@@ -6,9 +6,10 @@ import CenteredCard from "@/comp/CenteredCard";
 import Layout from "@/comp/layout";
 import { Paths } from "@/conf/paths";
 import { ExternalUrl } from "@/comp/Url";
-import Embed from "@/comp/Landing/Embed";
+import Embed from "@/comp/Embed";
 
 const Title = styled.h1`
+	text-transform: uppercase;
 	text-align: center;
 	color: ${({ theme }) => theme.colors.background};
 	margin-top: 10px;
@@ -66,7 +67,7 @@ const Input = styled.input`
 	padding: 5px;
 	border-radius: 5px;
 	outline: none;
-	box-shadow: ${({ theme }) => theme.shadow.primary};
+	box-shadow: ${({ theme }) => theme.shadow.light};
 	transition: all 0.1 ease-in-out;
 
 	&:focus {
@@ -191,7 +192,7 @@ const CreateUrl: FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ paths }
 					<Messsage>Preview:</Messsage>
 					<EmbedWrapper>
 						<Embed
-							title={Paths[formik.values.action].embed(formik.values.reciever, formik.values.author)}
+							title={Paths[formik.values.action].message(formik.values.reciever, formik.values.author)}
 							url={embedImage}
 						/>
 					</EmbedWrapper>

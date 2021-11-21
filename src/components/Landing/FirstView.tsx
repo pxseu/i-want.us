@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Attention } from "../Attention";
@@ -15,22 +14,18 @@ const CardWrapper = styled.div`
 	justify-content: center;
 `;
 
-const FirstView: FC = () => {
-	const router = useRouter();
-
-	return (
-		<div>
-			<ContentWrapper>
-				<Slogan>
-					Show your love <Attention>without</Attention> the stress
-				</Slogan>
-			</ContentWrapper>
-			<CardWrapper>
-				<WaifuCard title="cuddle" image={cuddle.src} onClick={() => router.push("/to-cuddle")} />
-				<WaifuCard title="kiss" image={kiss.src} secondary onClick={() => router.push("/to-kiss")} />
-			</CardWrapper>
-		</div>
-	);
-};
+const FirstView: FC = () => (
+	<div>
+		<ContentWrapper>
+			<Slogan>
+				Show your love <Attention>without</Attention> the stress
+			</Slogan>
+		</ContentWrapper>
+		<CardWrapper>
+			<WaifuCard title="cuddle" image={cuddle.src} path="/to-cuddle" />
+			<WaifuCard title="kiss" image={kiss.src} secondary path="/to-kiss" />
+		</CardWrapper>
+	</div>
+);
 
 export default FirstView;

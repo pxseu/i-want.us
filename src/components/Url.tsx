@@ -16,7 +16,7 @@ const Url = styled.a`
 
 	&:hover {
 		/* color: ${({ theme }) => theme.colors.dots}; */
-		background-color: ${({ theme }) => theme.colors.card}50;
+		background-color: ${({ theme }) => theme.colors.fontDark}50;
 	}
 
 	outline: none;

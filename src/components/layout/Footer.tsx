@@ -8,7 +8,7 @@ const Footer = styled.footer`
 	width: 100%;
 	padding: ${({ theme }) => theme.fontSize.m};
 	padding-bottom: ${({ theme }) => theme.fontSize.s};
-	background-color: ${({ theme }) => `${theme.colors.dots}cc`};
+	background-color: ${({ theme }) => theme.colors.header};
 	backdrop-filter: blur(5px);
 	justify-content: center;
 	align-items: center;
@@ -19,14 +19,14 @@ const Footer = styled.footer`
 `;
 
 const Text = styled.p`
-	color: ${({ theme }) => theme.colors.card};
+	color: ${({ theme }) => theme.colors.fontDark};
 	text-align: center;
 `;
 
 const Url = styled(ExternalUrl)`
 	margin: 0;
 	font-size: ${({ theme }) => theme.fontSize.s};
-	color: ${({ theme }) => theme.colors.card};
+	color: ${({ theme }) => theme.colors.fontDark};
 `;
 
 const CompFooter: FC = () => (

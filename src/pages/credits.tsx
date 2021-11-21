@@ -22,48 +22,44 @@ const Title = styled.h1`
 `;
 
 const Content = styled.ul`
+	font-size: ${({ theme }) => theme.fontSize.m};
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	color: ${({ theme }) => theme.colors.background};
+	margin-left: 30px;
 	margin-top: 5px;
 	padding: 5px;
 `;
 
 const Element = styled.li`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	color: ${({ theme }) => theme.colors.background};
 	margin-top: 2px;
 	padding: 0px;
 `;
 
 const Url = styled(ExternalUrl)`
-	font-size: ${({ theme }) => theme.fontSize.m};
+	font-size: ${({ theme }) => theme.fontSize.s};
 	color: ${({ theme }) => theme.colors.background};
-	margin: 0;
+	text-decoration: underline;
 `;
 
 const CreateUrl: FC = () => (
 	<Layout animate>
 		<CenteredCard>
-			<Title>Development</Title>
+			<Title>Development 🧰</Title>
 			<Content>
 				<Element>
-					<Url href={pxseu}>pxseu - Idea and Development</Url>
+					<Url href={pxseu}>pxseu</Url> - Idea and Development
 				</Element>
 				<Element>
-					<Url href={alistair}>Alistair - Domain name</Url>
+					<Url href={alistair}>Alistair </Url> - Domain name
 				</Element>
 				<Element>
-					<Url href={looskie}>Looskie - Design and help</Url>
+					<Url href={looskie}>Looskie</Url> - Design and help
 				</Element>
 			</Content>
 
-			<Title>Images</Title>
+			<Title>Images 🖼️</Title>
 			<Content>
 				<Element>
 					<Url href={nekosLife}>Nekos.Life</Url>

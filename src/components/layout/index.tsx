@@ -26,11 +26,11 @@ const ChildrenWrapper = styled(motion.div)`
 	font-size: 16px;
 
 	@media (max-width: ${({ theme }) => theme.breakpoint.md}) {
-		font-size: 14px;
+		font-size: 15px;
 	}
 
 	@media (max-width: ${({ theme }) => theme.breakpoint.sm}) {
-		font-size: 12px;
+		font-size: 11px;
 	}
 	/* margin: 0 10px; */
 `;

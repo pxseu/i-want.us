@@ -1,21 +1,19 @@
-import { HTMLMotionProps, motion, useAnimation, Variants } from "framer-motion";
+import { motion, useAnimation, Variants } from "framer-motion";
 import React, { useEffect, FC } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { theme } from "./Theme";
 
-const wrapperVariants: Variants = {
+const backgroundVariants: Variants = {
 	initial: {
-		backgroundPosition: "200%",
+		width: 0,
 	},
 	loaded: {
-		backgroundPosition: "100%",
+		width: "100%",
 		transition: {
 			type: "spring",
 			bounce: 0.33,
 			duration: 1,
-			delay: 0.3,
-			delayChildren: 0.6,
 		},
 	},
 };
@@ -34,26 +32,39 @@ const textVariants: Variants = {
 };
 
 const AttentionComp = styled(motion.span)`
-	padding: 5px 15px;
-	background: linear-gradient(to left, ${theme.colors.brand} 50%, transparent 50%);
-	background-size: 200% 100%;
-	background-position: 100% 100%;
-	color: ${theme.colors.background};
+	position: relative;
+	z-index: 1;
+	padding: 5px 10px;
+	overflow: hidden;
 	border-radius: 15px;
+
+	@media (max-width: ${theme.breakpoint.md}) {
+		padding: 5px;
+	}
+`;
+
+const AttentionText = styled(motion.span)`
+	color: ${theme.colors.background};
+	font-weight: bolder;
+`;
+
+const Background = styled(motion.span)`
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: -1;
+	border-radius: inherit;
+	background-color: ${theme.colors.brand};
 `;
 
 interface AttentionProps {
-	letterSpacing?: number;
 	animate?: boolean;
 }
 
-const AttentionText = styled(motion.span as FC<AttentionProps & HTMLMotionProps<"span">>)`
-	/* padding: 0px 20px; */
-	font-weight: bolder;
-	letter-spacing: ${({ letterSpacing }) => letterSpacing ?? 0.0255}rem;
-`;
-
-export const Attention: FC<AttentionProps> = ({ children, letterSpacing, animate }) => {
+export const Attention: FC<AttentionProps> = ({ children, animate }) => {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -67,10 +78,14 @@ export const Attention: FC<AttentionProps> = ({ children, letterSpacing, animate
 	}, [controls, inView, animate]);
 
 	return (
-		<AttentionComp variants={wrapperVariants} initial="initial" animate={controls} ref={ref}>
-			<AttentionText letterSpacing={letterSpacing} variants={textVariants}>
-				{children}
-			</AttentionText>
+		<AttentionComp
+			initial="initial"
+			animate={controls}
+			ref={ref}
+			transition={{ delayChildren: 1, staggerChildren: 1, staggerDirection: -1 }}
+		>
+			<AttentionText variants={textVariants}>{children}</AttentionText>
+			<Background variants={backgroundVariants} />
 		</AttentionComp>
 	);
 };

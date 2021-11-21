@@ -10,22 +10,23 @@ const Position = styled.div`
 	justify-content: center;
 `;
 
-const ContentWrapper = styled.div`
+const Wrapper = styled.div`
+	max-width: 800px;
+	margin: 70px;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: left;
 	justify-content: center;
-	/* font-family: "Arvo", serif; */
-	margin: 10px 20px;
-	padding: 20px 30px;
-	background-color: ${({ theme }) => theme.colors.card};
-	border-radius: 20px;
-	box-shadow: ${({ theme }) => theme.shadow.primary};
+	padding: 10px;
+	padding-right: 20px;
+	border-radius: 5px;
+	background-color: ${({ theme }) => theme.colors.fontDark};
+	box-shadow: ${({ theme }) => theme.shadow.light};
 `;
 
 const CenteredCard: FC = ({ children }) => (
 	<Position>
-		<ContentWrapper>{children}</ContentWrapper>
+		<Wrapper>{children}</Wrapper>
 	</Position>
 );
 

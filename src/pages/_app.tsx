@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Head from "next/head";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
@@ -45,7 +45,7 @@ const Global = createGlobalStyle`
 		border-left-color: ${theme.colors.brand};
 	}
 
-	::-webkit-scrollbar {
+	/* ::-webkit-scrollbar {
 		width: 12px;
 	}
 
@@ -59,7 +59,11 @@ const Global = createGlobalStyle`
 
 	::-webkit-scrollbar-thumb:hover {
 		background-color: ${theme.colors.brand}88; 
-	}
+	} */
+`;
+
+const Wrapper = styled.div`
+	display: flex;
 `;
 
 const App = ({ Component, pageProps }: AppProps) => (
@@ -74,7 +78,10 @@ const App = ({ Component, pageProps }: AppProps) => (
 			/>
 		</Head>
 		<Global />
-		<Component {...pageProps} />
+		<Wrapper>
+			<Component {...pageProps} />
+		</Wrapper>
 	</Theme>
 );
+
 export default App;

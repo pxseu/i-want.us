@@ -4,7 +4,7 @@ import { motion, useAnimation, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Line } from "../Line";
 import { ContentWrapper, LowerSlogan } from "./common";
-import Embed from "./Embed";
+import Embed from "../Embed";
 import { IN_ACTION } from "@/conf/inAction";
 
 const Images = styled(motion.div)`
@@ -14,6 +14,11 @@ const Images = styled(motion.div)`
 	align-items: center;
 	flex-wrap: wrap;
 	max-width: 1200px;
+	flex-shrink: 1;
+	/* @media (max-width: ${({ theme }) => theme.breakpoint.sm}) {
+		justify-content: left;
+		align-items: left;
+	} */
 `;
 
 const wrapperVariants: Variants = {
@@ -29,11 +34,6 @@ const wrapperVariants: Variants = {
 		},
 	},
 };
-
-const ImageWrapper = styled(motion.div)`
-	position: relative;
-	margin: 10px;
-`;
 
 const InAction: FC = () => {
 	const controls = useAnimation();
@@ -54,9 +54,13 @@ const InAction: FC = () => {
 			<LowerSlogan>Here it is in action</LowerSlogan>
 			<Images initial="initial" animate={controls} transition={{ staggerChildren: 0.2, delay: 0.5 }} ref={ref}>
 				{IN_ACTION.map((data) => (
-					<ImageWrapper variants={wrapperVariants} key={data.id}>
-						<Embed title={data.title} url={data.url} />
-					</ImageWrapper>
+					<Embed
+						title={data.title}
+						url={data.url}
+						motion
+						motionProps={{ variants: wrapperVariants, style: { opacity: 1, y: 0 } }}
+						key={data.id}
+					/>
 				))}
 			</Images>
 		</ContentWrapper>
